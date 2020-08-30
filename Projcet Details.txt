@@ -1,0 +1,41 @@
+This web based application is about Restaurants Management System. This application is based on ASP.NET MVC C# following by Database first(db first) approch. In this applicaion there are 4 types of users.
+1. User
+2. Manager
+3. Cheif
+4. Delevery Boy
+5. Admin
+
+Features:
+
+Visitor:
+1. Can see food items or details of foods. But can't order without Login/Registration.
+2. Can send message(Contact) without registration.
+
+User:
+1. Can see food with detials and order them.
+2. Can see his historys.
+
+Manager:
+1. Can do CRUD operations on Food items.
+2. Can do CRUD operations on Inventory items.
+3. Can do CRUD operations on Employee.
+4. Can see Order status.
+5. Can shift order to cheif.
+6. Can see anual income.
+7. Can see / delete food reviews.
+8. Can see User details.
+9. Can see all history.
+
+Cheif:
+1. Can see pending order.
+2. Can send order to Delivery Boy.
+3. Can do CRUD operations on Inventory items.
+
+Delivery Boy:
+1. After delivering products he can change staus of that order.
+
+Admin:
+1. Can do CRUD operations on Food items.
+2. Can do CRUD operations on Inventory items.
+3. Can do CRUD operations on Employee.
+4. Can do CRUD operations on History.

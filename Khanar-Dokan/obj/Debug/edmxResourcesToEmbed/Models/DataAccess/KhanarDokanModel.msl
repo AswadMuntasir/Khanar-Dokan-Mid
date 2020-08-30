@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="KhanarDokanModelStoreContainer" CdmEntityContainer="KhanarDokanEntities">
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="KhanarDokanModel.Category">
+        <MappingFragment StoreEntitySet="Categories">
+          <ScalarProperty Name="catid" ColumnName="catid" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="catname" ColumnName="catname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="KhanarDokanModel.Comment">
+        <MappingFragment StoreEntitySet="Comments">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contucts">
+      <EntityTypeMapping TypeName="KhanarDokanModel.Contuct">
+        <MappingFragment StoreEntitySet="Contuct">
+          <ScalarProperty Name="Comnid" ColumnName="Comnid" />
+          <ScalarProperty Name="Comnname" ColumnName="Comnname" />
+          <ScalarProperty Name="Comnemail" ColumnName="Comnemail" />
+          <ScalarProperty Name="Comnsubject" ColumnName="Comnsubject" />
+          <ScalarProperty Name="Comnmessage" ColumnName="Comnmessage" />
+          <ScalarProperty Name="Comnstatus" ColumnName="Comnstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="KhanarDokanModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="eid" ColumnName="eid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="etype" ColumnName="etype" />
+          <ScalarProperty Name="esalary" ColumnName="esalary" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FoodItems">
+      <EntityTypeMapping TypeName="KhanarDokanModel.FoodItem">
+        <MappingFragment StoreEntitySet="FoodItems">
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="fprice" ColumnName="fprice" />
+          <ScalarProperty Name="fdetails" ColumnName="fdetails" />
+          <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+          <ScalarProperty Name="fimagefile" ColumnName="fimagefile" />
+          <ScalarProperty Name="catid" ColumnName="catid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="KhanarDokanModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="hid" ColumnName="hid" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="fid" ColumnName="fid" />
+          <ScalarProperty Name="saddress" ColumnName="saddress" />
+          <ScalarProperty Name="sphone" ColumnName="sphone" />
+          <ScalarProperty Name="hdate" ColumnName="hdate" />
+          <ScalarProperty Name="hstatus" ColumnName="hstatus" />
+          <ScalarProperty Name="hqty" ColumnName="hqty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventorys">
+      <EntityTypeMapping TypeName="KhanarDokanModel.Inventory">
+        <MappingFragment StoreEntitySet="Inventorys">
+          <ScalarProperty Name="iid" ColumnName="iid" />
+          <ScalarProperty Name="iname" ColumnName="iname" />
+          <ScalarProperty Name="iamount" ColumnName="iamount" />
+          <ScalarProperty Name="istatus" ColumnName="istatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="KhanarDokanModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoices">
+          <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="ShipMethod" ColumnName="ShipMethod" />
+          <ScalarProperty Name="Shipping" ColumnName="Shipping" />
+          <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="CreditCardType" ColumnName="CreditCardType" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="ExpirationMonth" ColumnName="ExpirationMonth" />
+          <ScalarProperty Name="ExpirationYear" ColumnName="ExpirationYear" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="KhanarDokanModel.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="oId" ColumnName="oId" />
+          <ScalarProperty Name="hId" ColumnName="hId" />
+          <ScalarProperty Name="uId" ColumnName="uId" />
+          <ScalarProperty Name="oStatus" ColumnName="oStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="KhanarDokanModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="uname" ColumnName="uname" />
+          <ScalarProperty Name="uphone" ColumnName="uphone" />
+          <ScalarProperty Name="uemail" ColumnName="uemail" />
+          <ScalarProperty Name="uaddress" ColumnName="uaddress" />
+          <ScalarProperty Name="upassword" ColumnName="upassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

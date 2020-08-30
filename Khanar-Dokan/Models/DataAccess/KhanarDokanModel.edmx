@@ -1,0 +1,740 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="KhanarDokanModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="catid" />
+          </Key>
+          <Property Name="catid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fid" Type="int" Nullable="false" />
+          <Property Name="catname" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="fid" Type="int" Nullable="false" />
+          <Property Name="comment" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contuct">
+          <Key>
+            <PropertyRef Name="Comnid" />
+          </Key>
+          <Property Name="Comnid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Comnname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Comnemail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Comnsubject" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Comnmessage" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Comnstatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="eid" />
+          </Key>
+          <Property Name="eid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="etype" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="esalary" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FoodItems">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fprice" Type="int" Nullable="false" />
+          <Property Name="fdetails" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="fStatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fimagefile" Type="varchar" MaxLength="50" />
+          <Property Name="catid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="hid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="fid" Type="int" Nullable="false" />
+          <Property Name="saddress" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="sphone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hdate" Type="date" Nullable="false" />
+          <Property Name="hstatus" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hqty" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Inventorys">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="iname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="iamount" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="istatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="InvoiceNumber" />
+          </Key>
+          <Property Name="InvoiceNumber" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uid" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" Nullable="false" />
+          <Property Name="Subtotal" Type="money" Nullable="false" />
+          <Property Name="ShipMethod" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Shipping" Type="money" Nullable="false" />
+          <Property Name="SalesTax" Type="money" Nullable="false" />
+          <Property Name="Total" Type="money" Nullable="false" />
+          <Property Name="CreditCardType" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CardNumber" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExpirationMonth" Type="int" Nullable="false" />
+          <Property Name="ExpirationYear" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="oId" />
+          </Key>
+          <Property Name="oId" Type="int" Nullable="false" />
+          <Property Name="hId" Type="int" Nullable="false" />
+          <Property Name="uId" Type="int" Nullable="false" />
+          <Property Name="oStatus" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="uphone" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="uemail" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="uaddress" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="upassword" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Categories_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItems" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItems" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodItems_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItems" Multiplicity="1" />
+          <End Role="FoodItems1" Type="Self.FoodItems" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="FoodItems1">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItems" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_History">
+          <End Role="History" Type="Self.History" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="History">
+              <PropertyRef Name="hid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="hId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KhanarDokanModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comments" EntityType="Self.Comments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contuct" EntityType="Self.Contuct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FoodItems" EntityType="Self.FoodItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Inventorys" EntityType="Self.Inventorys" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Categories_FoodItems" Association="Self.FK_Categories_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_FoodItems" Association="Self.FK_Comments_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Users" Association="Self.FK_Employee_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Employee" EntitySet="Employee" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodItems_FoodItems" Association="Self.FK_FoodItems_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="FoodItems1" EntitySet="FoodItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_FoodItems" Association="Self.FK_History_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Users" Association="Self.FK_History_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="History" EntitySet="History" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Users" Association="Self.FK_Invoices_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_History" Association="Self.FK_Orders_History">
+            <End Role="History" EntitySet="History" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="KhanarDokanModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="catid" />
+          </Key>
+          <Property Name="catid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fid" Type="Int32" Nullable="false" />
+          <Property Name="catname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FoodItem" Relationship="Self.FK_Categories_FoodItems" FromRole="Categories" ToRole="FoodItems" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="fid" Type="Int32" Nullable="false" />
+          <Property Name="comment1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="FoodItem" Relationship="Self.FK_Comments_FoodItems" FromRole="Comments" ToRole="FoodItems" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Comments_Users" FromRole="Comments" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Contuct">
+          <Key>
+            <PropertyRef Name="Comnid" />
+          </Key>
+          <Property Name="Comnid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Comnname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comnemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comnsubject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comnmessage" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Comnstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="eid" />
+          </Key>
+          <Property Name="eid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="etype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="esalary" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Employee_Users" FromRole="Employee" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="FoodItem">
+          <Key>
+            <PropertyRef Name="fid" />
+          </Key>
+          <Property Name="fid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fprice" Type="Int32" Nullable="false" />
+          <Property Name="fdetails" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fimagefile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="catid" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Categories" Relationship="Self.FK_Categories_FoodItems" FromRole="FoodItems" ToRole="Categories" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_FoodItems" FromRole="FoodItems" ToRole="Comments" />
+          <NavigationProperty Name="FoodItems1" Relationship="Self.FK_FoodItems_FoodItems" FromRole="FoodItems" ToRole="FoodItems1" />
+          <NavigationProperty Name="FoodItem1" Relationship="Self.FK_FoodItems_FoodItems" FromRole="FoodItems1" ToRole="FoodItems" />
+          <NavigationProperty Name="Histories" Relationship="Self.FK_History_FoodItems" FromRole="FoodItems" ToRole="History" />
+        </EntityType>
+        <EntityType Name="History">
+          <Key>
+            <PropertyRef Name="hid" />
+          </Key>
+          <Property Name="hid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="fid" Type="Int32" Nullable="false" />
+          <Property Name="saddress" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="hstatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hqty" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FoodItem" Relationship="Self.FK_History_FoodItems" FromRole="History" ToRole="FoodItems" />
+          <NavigationProperty Name="User" Relationship="Self.FK_History_Users" FromRole="History" ToRole="Users" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_History" FromRole="History" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="iid" />
+          </Key>
+          <Property Name="iid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="iname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="iamount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="istatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="InvoiceNumber" />
+          </Key>
+          <Property Name="InvoiceNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uid" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Subtotal" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ShipMethod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Shipping" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SalesTax" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="CreditCardType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CardNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ExpirationMonth" Type="Int32" Nullable="false" />
+          <Property Name="ExpirationYear" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Invoices_Users" FromRole="Invoices" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="oId" />
+          </Key>
+          <Property Name="oId" Type="Int32" Nullable="false" />
+          <Property Name="hId" Type="Int32" Nullable="false" />
+          <Property Name="uId" Type="Int32" Nullable="false" />
+          <Property Name="oStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="History" Relationship="Self.FK_Orders_History" FromRole="Orders" ToRole="History" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Orders_Users" FromRole="Orders" ToRole="Users" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uphone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="uaddress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="upassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Comments" Relationship="Self.FK_Comments_Users" FromRole="Users" ToRole="Comments" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employee_Users" FromRole="Users" ToRole="Employee" />
+          <NavigationProperty Name="Histories" Relationship="Self.FK_History_Users" FromRole="Users" ToRole="History" />
+          <NavigationProperty Name="Invoices" Relationship="Self.FK_Invoices_Users" FromRole="Users" ToRole="Invoices" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Users" FromRole="Users" ToRole="Orders" />
+        </EntityType>
+        <Association Name="FK_Categories_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItem" Multiplicity="1" />
+          <End Role="Categories" Type="Self.Category" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="Categories">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItem" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Comments" Type="Self.Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employee_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Employee">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FoodItems_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItem" Multiplicity="1" />
+          <End Role="FoodItems1" Type="Self.FoodItem" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="FoodItems1">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_FoodItems">
+          <End Role="FoodItems" Type="Self.FoodItem" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FoodItems">
+              <PropertyRef Name="fid" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="fid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_History_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="History" Type="Self.History" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="History">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_History">
+          <End Role="History" Type="Self.History" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="History">
+              <PropertyRef Name="hid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="hId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Invoices_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Invoices" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Invoices">
+              <PropertyRef Name="uid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Users">
+          <End Role="Users" Type="Self.User" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="KhanarDokanEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Comments" EntityType="Self.Comment" />
+          <EntitySet Name="Contucts" EntityType="Self.Contuct" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="FoodItems" EntityType="Self.FoodItem" />
+          <EntitySet Name="Histories" EntityType="Self.History" />
+          <EntitySet Name="Inventorys" EntityType="Self.Inventory" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Categories_FoodItems" Association="Self.FK_Categories_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="Categories" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_FoodItems" Association="Self.FK_Comments_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Users" Association="Self.FK_Comments_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employee_Users" Association="Self.FK_Employee_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Employee" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FoodItems_FoodItems" Association="Self.FK_FoodItems_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="FoodItems1" EntitySet="FoodItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_FoodItems" Association="Self.FK_History_FoodItems">
+            <End Role="FoodItems" EntitySet="FoodItems" />
+            <End Role="History" EntitySet="Histories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_History_Users" Association="Self.FK_History_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="History" EntitySet="Histories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_History" Association="Self.FK_Orders_History">
+            <End Role="History" EntitySet="Histories" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoices_Users" Association="Self.FK_Invoices_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Invoices" EntitySet="Invoices" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Users" Association="Self.FK_Orders_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="KhanarDokanModelStoreContainer" CdmEntityContainer="KhanarDokanEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="KhanarDokanModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="catid" ColumnName="catid" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="catname" ColumnName="catname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="KhanarDokanModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="comment1" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contucts">
+            <EntityTypeMapping TypeName="KhanarDokanModel.Contuct">
+              <MappingFragment StoreEntitySet="Contuct">
+                <ScalarProperty Name="Comnid" ColumnName="Comnid" />
+                <ScalarProperty Name="Comnname" ColumnName="Comnname" />
+                <ScalarProperty Name="Comnemail" ColumnName="Comnemail" />
+                <ScalarProperty Name="Comnsubject" ColumnName="Comnsubject" />
+                <ScalarProperty Name="Comnmessage" ColumnName="Comnmessage" />
+                <ScalarProperty Name="Comnstatus" ColumnName="Comnstatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="KhanarDokanModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="eid" ColumnName="eid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="etype" ColumnName="etype" />
+                <ScalarProperty Name="esalary" ColumnName="esalary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FoodItems">
+            <EntityTypeMapping TypeName="KhanarDokanModel.FoodItem">
+              <MappingFragment StoreEntitySet="FoodItems">
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="fprice" ColumnName="fprice" />
+                <ScalarProperty Name="fdetails" ColumnName="fdetails" />
+                <ScalarProperty Name="fStatus" ColumnName="fStatus" />
+                <ScalarProperty Name="fimagefile" ColumnName="fimagefile" />
+                <ScalarProperty Name="catid" ColumnName="catid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Histories">
+            <EntityTypeMapping TypeName="KhanarDokanModel.History">
+              <MappingFragment StoreEntitySet="History">
+                <ScalarProperty Name="hid" ColumnName="hid" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="fid" ColumnName="fid" />
+                <ScalarProperty Name="saddress" ColumnName="saddress" />
+                <ScalarProperty Name="sphone" ColumnName="sphone" />
+                <ScalarProperty Name="hdate" ColumnName="hdate" />
+                <ScalarProperty Name="hstatus" ColumnName="hstatus" />
+                <ScalarProperty Name="hqty" ColumnName="hqty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Inventorys">
+            <EntityTypeMapping TypeName="KhanarDokanModel.Inventory">
+              <MappingFragment StoreEntitySet="Inventorys">
+                <ScalarProperty Name="iid" ColumnName="iid" />
+                <ScalarProperty Name="iname" ColumnName="iname" />
+                <ScalarProperty Name="iamount" ColumnName="iamount" />
+                <ScalarProperty Name="istatus" ColumnName="istatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="KhanarDokanModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="InvoiceNumber" ColumnName="InvoiceNumber" />
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+                <ScalarProperty Name="ShipMethod" ColumnName="ShipMethod" />
+                <ScalarProperty Name="Shipping" ColumnName="Shipping" />
+                <ScalarProperty Name="SalesTax" ColumnName="SalesTax" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="CreditCardType" ColumnName="CreditCardType" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="ExpirationMonth" ColumnName="ExpirationMonth" />
+                <ScalarProperty Name="ExpirationYear" ColumnName="ExpirationYear" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="KhanarDokanModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="oId" ColumnName="oId" />
+                <ScalarProperty Name="hId" ColumnName="hId" />
+                <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="oStatus" ColumnName="oStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="KhanarDokanModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="uname" ColumnName="uname" />
+                <ScalarProperty Name="uphone" ColumnName="uphone" />
+                <ScalarProperty Name="uemail" ColumnName="uemail" />
+                <ScalarProperty Name="uaddress" ColumnName="uaddress" />
+                <ScalarProperty Name="upassword" ColumnName="upassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
